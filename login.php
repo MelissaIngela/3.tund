@@ -1,5 +1,7 @@
 <?php
 
+	require ("../../config.php");
+
 	//var_dump($_GET);
 	//echo"<br>";
 	//var_dump($_POST);
@@ -73,6 +75,24 @@
 			$signupPerekonnanimiError = "See väli on kohustuslik";
 		}
 	}
+	if (isset($_POST["signupEmail"]) &&
+		isset($_POST["signupPassword"])&&
+		$signupEmailError == "" && 
+		empty ($signupPasswordError) 
+		
+		) {
+		
+		// ühtegi viga ei ole, kõik vajalik olemas
+		echo"salvestan...<br>";
+		echo "email ".$signupEmail."<br>";
+		echo "parool ".$_POST["signupPassword"]."<br>";
+		$password = hash ("sha512", $_POST["signupPassword"]);
+		echo "räsi".$password."<br>";
+		
+		$database = "if16_melissabramanis";
+		$mysqli = new mysqli($serverHost,$serverUsername, $serverPassword, $database);
+		
+	}
 	
 ?>
 <!DOCTYPE html>
@@ -102,7 +122,7 @@
 				<input type="submit" value="Loo kasutaja">
 				
 			</form>	
-		<h1>Nimi</h1>
+		<h2>Nimi</h2>
 			<form method="POST">
 				
 				<input placeholder="Eesnimi" name= "signupEesnimi" type="name"> <?php echo $signupEesnimiError; ?>
