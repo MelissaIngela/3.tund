@@ -5,6 +5,7 @@
 	//var_dump($_POST);
 	
 	$signupEmailError = "";
+	$signupEmail = "";
 	
 	//kas on üldse olemas
 	if (isset ($_POST["signupEmail"])){
@@ -14,6 +15,8 @@
 		if (empty ($_POST["signupEmail"])){
 			//oli tõesti tühi 
 			$signupEmailError = "See väli on kohustuslik";
+		} else {
+			$signupEmail = $_POST["signupEmail"];
 		}
 	}
 	$signupPasswordError = "";
@@ -74,13 +77,13 @@
 				<br><br>
 				<input placeholder="Parool" name="loginpassword" type="password">
 				<br><br>
-				<input type="submit">
+				<input type="submit" value="Logi sisse">
 				
 			</form>
 		<h1>Loo kasutaja</h1>
 			<form method="POST">
 				
-				<input placeholder="Email" name= "signupEmail" type="email"> <?php echo $signupEmailError; ?>
+				<input placeholder="Email" name= "signupEmail" type="email" value="<?php echo $signupEmail; ?>" > <?php echo $signupEmailError; ?>
 				<br><br>
 				<input placeholder="Parool" name="signupPassword" type="password"><?php echo $signupPasswordError; ?>
 				<br><br>
