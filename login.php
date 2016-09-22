@@ -91,6 +91,17 @@
 		
 		$database = "if16_melissabramanis";
 		$mysqli = new mysqli($serverHost,$serverUsername, $serverPassword, $database);
+		$stmt = $mysqli->prepare("INSERT INTO user_sample (email, password) VALUES (?, ?)");
+		
+		
+		$stmt->bind_param("ss", $signupEmail, $password);
+		
+		if($stmt->execute()){
+			echo "salvestamine õnnestus";
+				
+		}else{
+			echo "ERROR".$stmt->error;
+		}
 		
 	}
 	
