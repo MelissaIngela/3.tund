@@ -42,6 +42,17 @@
 			
 		}
 	}
+	
+	$gender = "";
+	if(isset($_POST["gender"])) {
+		if(!empty($_POST["gender"])){
+			
+			//on olemas ja ei ole tühi
+			$gender = $_POST["gender"];
+		}
+	}
+			
+			
 	$signupEesnimiError = "";
 	if (isset ($_POST["signupEesnimi"])){
 		
@@ -62,6 +73,7 @@
 			$signupPerekonnanimiError = "See väli on kohustuslik";
 		}
 	}
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,9 +108,28 @@
 				<input placeholder="Eesnimi" name= "signupEesnimi" type="name"> <?php echo $signupEesnimiError; ?>
 				<br><br>
 				<input placeholder="Perekonnanimi" name="signupPerekonnanimi" type="name"><?php echo $signupPerekonnanimiError; ?>
-				<br><br>
-				<input type="submit" value="Loo kasutaja">
 				
+				<br><br>
+				<?php if ($gender == "male") { ?>
+				<input type="radio" name="gender" value="male" checked > Mees<br>
+				<?php } else { ?>
+				<input type="radio" name="gender" value="male"> Mees<br>
+				<?php } ?>
+
+				<?php if ($gender == "female") { ?>
+				<input type="radio" name="gender" value="female" checked > Naine<br>
+				<?php } else { ?>
+				<input type="radio" name="gender" value="female"> Naine<br>
+				<?php } ?>
+
+				<?php if ($gender == "other") { ?>
+				<input type="radio" name="gender" value="other" checked > Muu<br>
+				<?php } else { ?>
+				<input type="radio" name="gender" value="other"> Muu<br>
+				<?php } ?>
+				  
+				<input type="submit" value="Loo kasutaja">
+</form> 
 			
 		
 
