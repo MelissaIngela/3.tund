@@ -1,7 +1,7 @@
 <?php
 
 	require ("../../config.php");
-
+	require ("functions.php");
 	//var_dump($_GET);
 	//echo"<br>";
 	//var_dump($_POST);
@@ -89,7 +89,11 @@
 		$password = hash ("sha512", $_POST["signupPassword"]);
 		echo "räsi".$password."<br>";
 		
-		$database = "if16_melissabramanis";
+		//kutsun funktsiooni , et salvestada
+		
+		signup($signupEmail, $password);
+		
+		/*$database = "if16_melissabramanis";
 		$mysqli = new mysqli($serverHost,$serverUsername, $serverPassword, $database);
 		
 		$stmt = $mysqli->prepare("INSERT INTO user_sample (email, password) VALUES (?, ?)");
@@ -103,7 +107,7 @@
 				
 		}else{
 			echo "ERROR  ".$stmt->error;
-		}
+		}*/
 		
 	}
 	
