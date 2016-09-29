@@ -135,18 +135,18 @@
 				<input placeholder="Email" name= "signupEmail" type="email" value="<?php echo $signupEmail; ?>" > <?php echo $signupEmailError; ?>
 				<br><br>
 				<input placeholder="Parool" name="signupPassword" type="password"><?php echo $signupPasswordError; ?>
-				<br><br>
-				<input type="submit" value="Loo kasutaja">
+				<br>
 				
-			</form>	
-		<h2>Nimi</h2>
-			<form method="POST">
+				
+		<h3>Nimi</h3>
+			
 				
 				<input placeholder="Eesnimi" name= "signupEesnimi" type="name"> <?php echo $signupEesnimiError; ?>
 				<br><br>
 				<input placeholder="Perekonnanimi" name="signupPerekonnanimi" type="name"><?php echo $signupPerekonnanimiError; ?>
 				
-				<br><br>
+				<br>
+		<h3>Sugu</h3>
 				<?php if ($gender == "male") { ?>
 				<input type="radio" name="gender" value="male" checked > Mees<br>
 				<?php } else { ?>

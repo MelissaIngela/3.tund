@@ -1,10 +1,10 @@
 <?php
-
-
+	$database = "if16_melissabramanis";
+	//var_dump($GLOBALS);
+	
 	function signup($email, $password) {
 		
-		$database = "if16_melissabramanis";
-		$mysqli = new mysqli($serverHost,$serverUsername, $serverPassword, $database);
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"],$GLOBALS["serverPassword"], $GLOBALS["database"]);
 		
 		$stmt = $mysqli->prepare("INSERT INTO user_sample (email, password) VALUES (?, ?)");
 		
